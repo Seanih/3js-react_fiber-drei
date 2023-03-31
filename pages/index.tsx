@@ -1,5 +1,9 @@
+import { Html } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { Suspense } from 'react';
+import Three from '../components/three';
 
 const Home: NextPage = () => {
 	return (
@@ -10,7 +14,11 @@ const Home: NextPage = () => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<h1 className='text-blue-400'>Everything Works</h1>
+			<Canvas id='three-canvas-container'>
+				<Suspense fallback={null}>
+					<Three />
+				</Suspense>
+			</Canvas>
 		</div>
 	);
 };
